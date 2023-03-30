@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "604992716514",
+    "project_id": "tpeverysearchathena",
+    "storage_bucket": "tpeverysearchathena.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:604992716514:android:be20c5affbda93590768bb",
+        "android_client_info": {
+          "package_name": "com.nha2023.tpeverysearch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "604992716514-9im4r048jhhqj7u8hcr05e25fut3efqf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCD1AndbGy34HuFqp8rsUgNjCdBX2t8lqI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "604992716514-9im4r048jhhqj7u8hcr05e25fut3efqf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
