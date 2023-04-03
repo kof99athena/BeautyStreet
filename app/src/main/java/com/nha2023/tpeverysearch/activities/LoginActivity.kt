@@ -16,9 +16,17 @@ import com.google.android.gms.tasks.Task
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.util.Utility
 import com.kakao.sdk.user.UserApiClient
+import com.navercorp.nid.NaverIdLoginSDK
+import com.navercorp.nid.oauth.OAuthLoginCallback
 import com.nha2023.tpeverysearch.G
 import com.nha2023.tpeverysearch.databinding.ActivityLoginBinding
+import com.nha2023.tpeverysearch.model.NidUserInfoResponse
 import com.nha2023.tpeverysearch.model.UserAccount
+import com.nha2023.tpeverysearch.network.RetrofitAPIService
+import com.nha2023.tpeverysearch.network.RetrofitHelper
+import retrofit2.Call
+import retrofit2.Response
+import javax.security.auth.callback.Callback
 
 class LoginActivity : AppCompatActivity() {
 
@@ -140,8 +148,65 @@ class LoginActivity : AppCompatActivity() {
     })
 
 
-
     private fun clickedLoginNaver(){
+
+        //여기서 네아로 초기화작업을한다.
+        NaverIdLoginSDK.initialize(this,"NyhPiCjFkeBW9UzzKJqW","By502Czydb","서치Every")
+
+        //로그인 작업 시작하기
+        //토큰 : 개인정보에 접근할 수 있는 티켓 (그때그때 발급받는다.)
+        // NaverIdLoginSDK.authenticate() : 토큰을 받아오는 명렁어
+        NaverIdLoginSDK.authenticate(this,object : OAuthLoginCallback{
+            override fun onError(errorCode: Int, message: String) {
+                Toast.makeText(this@LoginActivity, "error : $message" , Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onFailure(httpStatus: Int, message: String) {
+                //아이디가 틀렸을때 등
+                Toast.makeText(this@LoginActivity, "로그인실패 : $message", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onSuccess() {
+                Toast.makeText(this@LoginActivity, "로그인성공", Toast.LENGTH_SHORT).show()
+
+                //로그인성공한다해서 개인정보가 오는게 아니다.
+                //사용자 정보를 가져오는 REST API로 가져온다. (get방식 post방식을 이용해서가져온다. 즉 url을 통해서 리소스의 위치를 알려준다.)
+                //REST API를 작업할때 접속토큰이 필요함
+                val accessToken : String? = NaverIdLoginSDK.getAccessToken() //토큰을 줘
+                Log.i("token",accessToken.toString()) //toString이거나 !!으로 확인
+
+                //레트로핏으로 사용자정보를 API 가져오기 - 카카오때문에 Retrofit이 들어가있다. 그래도 가져오자
+                //Retrofit: 네트워크작업을 대신써주는 작업
+                //GSON : JSON을 파싱해준다.
+
+                val retrofit = RetrofitHelper.getRetrofitInstance("https://openapi.naver.com")//자동추론 , 레드로핏이 할 일을 헬퍼에 적어두었다.
+                retrofit.create(RetrofitAPIService::class.java).getNisUserInfo("Bearer $accessToken").enqueue(object : retrofit2.Callback<NidUserInfoResponse>{
+                    override fun onResponse(
+                        call: Call<NidUserInfoResponse>,
+                        response: Response<NidUserInfoResponse>
+                    ) {
+                        val userInfoResponse : NidUserInfoResponse? = response.body()  //널어블일수도 있다.
+                        val id : String = userInfoResponse?.response?.id ?: "" //널이면 빈 글씨를 넣을께
+                        val email : String = userInfoResponse?.response?.email ?: "" //엘비스 연산자
+
+                        Toast.makeText(this@LoginActivity, "$email", Toast.LENGTH_SHORT).show()
+                        G.userAccount = UserAccount(id,email) //전역에서 쓸수있는 변수
+
+                        //메인화면으로 이동하자
+                        startActivity(Intent(this@LoginActivity,MainActivity::class.java))
+                        finish()
+                    }
+
+                    override fun onFailure(call: Call<NidUserInfoResponse>, t: Throwable) {
+                        Toast.makeText(this@LoginActivity, "실패 : ${t.message}", Toast.LENGTH_SHORT).show()
+                    }
+
+                }) //토큰은 변수
+
+            }
+
+        }) //익명클래스로 만들고 implement해준다.
+
 
     }
 }
