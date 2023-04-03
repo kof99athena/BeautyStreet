@@ -10,6 +10,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        //카카오 SDK가 있는 repository, 카카오를 다운받을 수 있는 준비가 됨
+        maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/' }
     }
 }
 rootProject.name = "TPEverySearch"
