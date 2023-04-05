@@ -214,8 +214,14 @@ class MainActivity : AppCompatActivity() {
                 response: Response<KakaoSearchPlaceResponse>
             ) {
                 searchPlaceResponse = response.body()
-                Toast.makeText(this@MainActivity, "${searchPlaceResponse?.meta?.total_count}", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this@MainActivity, "${searchPlaceResponse?.meta?.total_count}", Toast.LENGTH_SHORT).show()
                 //? : 널세이프가 필요하다.
+
+                //무조건 검색이 완료되면 ListFragment 부터 보여주기
+                supportFragmentManager.beginTransaction().replace(R.id.container_fragment,PlaceListFragment()).commit()
+
+                //번거롭지만 tab버튼의 위치를 ListFragment tab으로 변경
+                binding.tabLayout.getTabAt(0)?.select()  //0번방에 안만들을수도 있어서
 
             }
 
