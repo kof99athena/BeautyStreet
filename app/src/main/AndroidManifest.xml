@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+<!--    위치정보제공에대한 퍼미션도 필요하다 정확도가 높은 FINE, 또한 네트워크 퍼미션도 사용해야 한다.(COARSE) -->
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <application
         android:name=".GlobalApplication"
