@@ -1,12 +1,14 @@
 package com.nha2023.tpeverysearch.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.net.PlatformVpnProfile
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.nha2023.tpeverysearch.activities.PlaceUrlActivity
 import com.nha2023.tpeverysearch.databinding.RecyclerItemListFragmentBinding
 import com.nha2023.tpeverysearch.model.Place
 
@@ -33,6 +35,17 @@ class PlaceListRecyclerAdapter (var context : Context , var documents : MutableL
         holder.binding.tvAddress.text = if (place.road_address_name=="") place.address_name else place.road_address_name
         //삼항연산자인듯 아닌듯~ 이렇게 쓴다. 코틀린 스타일이다.
         holder.binding.tvDistance.text = "${place.distance}m"
+
+        //여기에서 WebView를 출력하자 . 뷰홀더에서 해도 되지만.. 한줄로 끝내고 싶으니까 여기서하자
+        holder.binding.root.setOnClickListener {
+            val intent : Intent = Intent(context,PlaceUrlActivity::class.java)
+            intent.putExtra("place_Url",place.place_url) //바로 start하는게 아니다. 엑스트라값을 넣어주고 실행시켜야한다.
+            context.startActivity(intent)
+            //finish는 어울리지 않는다.
+
+
+
+        }
 
     }
 

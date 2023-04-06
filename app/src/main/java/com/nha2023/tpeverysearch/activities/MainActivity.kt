@@ -7,6 +7,7 @@ import android.location.LocationRequest
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Looper
+import android.util.Log
 import android.view.KeyEvent
 import android.view.Menu
 import android.view.MenuItem
@@ -26,6 +27,7 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
+import com.kakao.util.maps.helper.Utility
 import com.nha2023.tpeverysearch.R
 import com.nha2023.tpeverysearch.databinding.ActivityMainBinding
 import com.nha2023.tpeverysearch.fragment.PlaceListFragment
@@ -56,7 +58,7 @@ class MainActivity : AppCompatActivity() {
     //멤버변수에서는 context를 바로 쓰지 못한다. myLocation에 내 위치를 준다.
 
 
-    //검색 결과 응답객체 참조변수
+    //검색 결과 응답객체 참조변수 , 마커가 찍힌 위치를 얘가 갖고있다.
     var searchPlaceResponse : KakaoSearchPlaceResponse?= null //초기화 해야한다. null일수도 있다.
 
 
@@ -66,6 +68,10 @@ class MainActivity : AppCompatActivity() {
         //작업
         //툴바를 제목줄로 대체 - 옵션메뉴랑 연결되도록
         setSupportActionBar(binding.toolbar)
+
+        //키 해쉬값을 얻어오자
+        var keyHash : String = Utility.getKeyHash(this)
+        Log.i("keyhash",keyHash)
 
         //앱이 시작하자마자 처음 보여질 프래그먼트를 동적으로 추가하자.
         supportFragmentManager.beginTransaction().add(R.id.container_fragment,PlaceListFragment()).commit() //PlaceListFragment() 객체를 만들어준다.
@@ -123,6 +129,7 @@ class MainActivity : AppCompatActivity() {
             requestMyLocation()
         }
 
+        binding.ivMyLocation.setOnClickListener { requestMyLocation() }
 
     }//onCreate method..
 
