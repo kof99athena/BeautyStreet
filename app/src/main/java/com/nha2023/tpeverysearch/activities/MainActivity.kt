@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
     //멤버변수에서는 context를 바로 쓰지 못한다. myLocation에 내 위치를 준다.
 
 
-    //검색 결과 응답객체 참조변수
+    //검색 결과 응답객체 참조변수 , 마커가 찍힌 위치를 얘가 갖고있다.
     var searchPlaceResponse : KakaoSearchPlaceResponse?= null //초기화 해야한다. null일수도 있다.
 
 
@@ -123,6 +123,7 @@ class MainActivity : AppCompatActivity() {
             requestMyLocation()
         }
 
+        binding.ivMyLocation.setOnClickListener { requestMyLocation() }
 
     }//onCreate method..
 
