@@ -1,23 +1,13 @@
 package com.nha2023.tpeverysearch.fragment
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.kakao.util.maps.helper.Utility
 import com.nha2023.tpeverysearch.R
-import com.nha2023.tpeverysearch.activities.MainActivity
-import com.nha2023.tpeverysearch.activities.PlaceUrlActivity
 import com.nha2023.tpeverysearch.databinding.FragmentPlaceListBinding
 import com.nha2023.tpeverysearch.databinding.FragmentPlaceMapBinding
-import com.nha2023.tpeverysearch.model.Place
-import net.daum.mf.map.api.MapPOIItem
-import net.daum.mf.map.api.MapPoint
-import net.daum.mf.map.api.MapView
-import net.daum.mf.map.api.MapView.POIItemEventListener
 
 class PlaceMapFragment : Fragment() {
 
@@ -40,9 +30,6 @@ class PlaceMapFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.containerMapview.addView(mapView) //여기까지는 기본지도가 보이고
         //이제 LIST내의 장소들을 마커로 찍어서 보여주는 작업이 필요하다.
-
-        var keyHash : String = Utility.getKeyHash(requireActivity())
-        Log.i("keyhash",keyHash)
 
         //순서중요! 지도관련 설정 위에서 해야한다.
         //마커 or 말풍선클릭 이벤트 - 반드시 마커를 추가하는거보다 먼저 등록해야한다.
@@ -148,29 +135,3 @@ class PlaceMapFragment : Fragment() {
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
