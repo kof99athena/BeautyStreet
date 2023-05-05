@@ -60,6 +60,12 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
 
+    //구글 내 위치 찾기 구글퓨즈드 로케이션 API
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
+
+    //kakaoMap SDK 사용하기
+    implementation files('libs/libDaumMapAndroid.jar')
+
     implementation libs.core.ktx
     implementation libs.appcompat
     implementation libs.material

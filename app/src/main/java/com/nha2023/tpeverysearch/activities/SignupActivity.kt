@@ -2,6 +2,7 @@ package com.nha2023.tpeverysearch.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.firestore.FirebaseFirestore
 import com.nha2023.tpeverysearch.R
@@ -15,10 +16,16 @@ class SignupActivity : AppCompatActivity() {
         binding= ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        Log.i("actionBar",supportActionBar.toString())
         //툴바를 액션바로 설정
         setSupportActionBar(binding.toolbar)
         //액션바에 업버튼 만들기
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true) //get ~ , 없으면 에러 -> 자바에서는 if써서 해결
+
+//        if(supportActionBar==null) return
+//        supportActionBar.setDisplayHomeAsUpEnabled(true)
+
         supportActionBar?.setHomeAsUpIndicator(R.drawable.app_logo)
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
@@ -33,7 +40,7 @@ class SignupActivity : AppCompatActivity() {
     private fun clickSignUp(){
         //Firebase Firestore DB에 사용자 정보 저장하기
 
-        var email:String= binding.etEmail.text.toString()
+        var email:String= binding.etEmail.text.toString() // "" 이건 null이 아니다.
         var password:String= binding.etPassword.text.toString()
         var passwordConfirm:String= binding.etPasswordConfirm.text.toString()
 
