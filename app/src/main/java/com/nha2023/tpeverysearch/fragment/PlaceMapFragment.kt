@@ -12,8 +12,11 @@ import com.nha2023.tpeverysearch.activities.PlaceUrlActivity
 import com.nha2023.tpeverysearch.databinding.FragmentPlaceListBinding
 import com.nha2023.tpeverysearch.databinding.FragmentPlaceMapBinding
 import com.nha2023.tpeverysearch.model.Place
+import net.daum.mf.map.api.CameraUpdateFactory
 import net.daum.mf.map.api.MapPOIItem
 import net.daum.mf.map.api.MapPoint
+import net.daum.mf.map.api.MapPointBounds
+import net.daum.mf.map.api.MapPolyline
 import net.daum.mf.map.api.MapView
 import net.daum.mf.map.api.MapView.POIItemEventListener
 
@@ -34,6 +37,7 @@ class PlaceMapFragment : Fragment() {
 
     val mapView : MapView by lazy { MapView(context) } // 맵뷰객체 생성  프래그먼트에서 운영체제는 context로 부른다.
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.containerMapview.addView(mapView) //여기까지는 기본지도가 보이고
@@ -42,7 +46,6 @@ class PlaceMapFragment : Fragment() {
         //순서중요! 지도관련 설정 위에서 해야한다.
         //마커 or 말풍선클릭 이벤트 - 반드시 마커를 추가하는거보다 먼저 등록해야한다.
         mapView.setPOIItemEventListener(markerEventListener) //markerEventListener 전역변수로 써야한다. 클래스이름이 맵뷰가 아니다.
-
 
 
         //이제 지도 관련설정 (지도위치, 마커추가 등)
@@ -91,15 +94,14 @@ class PlaceMapFragment : Fragment() {
                 //즉, 해당 마커에 관련된 정보를 가지고 있는 객체를 마커에 저장해두기.
                 userObject = it.place_url
                 //it은 Place이다
-
-
             }
-        }
+
+            mapView.addPOIItem(marker)
+        }//forEach문안에 넣어야한다.  mapView.addPOIItem(marker)
+
         //코틀린은 if문 돌릴때 for each문
         //sam변환
         //?. : null아니면 실행해라
-
-        mapView.addPOIItem(marker)
 
     }
 
@@ -131,8 +133,8 @@ class PlaceMapFragment : Fragment() {
             val place : Place = p1?.userObject as Place //다운캐스팅
             val intent = Intent(context,PlaceUrlActivity::class.java)
             intent.putExtra("place_url",place.place_url)
-            startActivity(intent) //아탑터일때는 context를 붙인다.
 
+            startActivity(intent) //아탑터일때는 context를 붙인다.
         }
 
         override fun onDraggablePOIItemMoved(p0: MapView?, p1: MapPOIItem?, p2: MapPoint?) {

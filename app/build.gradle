@@ -18,10 +18,14 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+//      minifyEnabled true 난독화 기능 추가하기 - 코드를 줄여주는 기능
+//      슈링크리소스는 데이터를 축소시켜준다.
+
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            shrinkResources true
         }
     }
     compileOptions {

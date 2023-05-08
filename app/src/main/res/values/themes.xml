@@ -13,32 +13,20 @@
 
 
         <item name="colorPrimary">@color/black</item>
-
         <item name="colorPrimaryVariant">@color/black</item>
-
         <item name="colorOnPrimary">@color/white</item>
 
         <!-- Secondary brand color. -->
-
-
         <item name="colorSecondary">@color/black</item>
-
         <item name="colorSecondaryVariant">@color/black</item>
-
         <item name="colorOnSecondary">@color/black</item>
-
         <!-- Status bar color. -->
 
-
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-
         <!-- Customize your theme here. -->
 
-
     </style>
-
     <!-- SplashActivity에 적용할 테마 스타일 -->
-
 
     -
     <style name="SplashTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
