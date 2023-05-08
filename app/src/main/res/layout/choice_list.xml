@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <ImageView
         android:id="@+id/choice_wc"
         android:background="@drawable/bg_choice_select"
@@ -48,6 +49,10 @@
         android:src="@drawable/pharmacy"
         android:layout_width="40dp"
         android:layout_height="40dp"/>
+
+
+
+
 
     <ImageView
         android:id="@+id/choice_pharm1"
@@ -94,10 +99,6 @@
         android:src="@drawable/baseline_coffee_24"
         android:layout_width="40dp"
         android:layout_height="40dp"/>
-
-
-
-
 
 
 

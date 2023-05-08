@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
 
     //검색에 필요한 요청데이터 : query(검색장소명) , 내주변 좌표 x(경도 longitude),y(위도 latitude) ->카카오에서 요청하는 데이터는 3개이다.
     //1. 검색 장소명
-    var searchQuery : String = "화장실" //앱 초기 검색어 - 내 주변 개방 화장실
+    var searchQuery : String = "네일샵" //앱 초기 검색어 - 내 주변 개방 화장실
 
     //2. 현재 내 위치 정보 객체 (위도, 경도를 멤버로 보유한 객체)
     var myLocation : Location?= null //내 위치를 못 찾아 올수도 있으니까 null로 해준다
@@ -81,10 +81,10 @@ class MainActivity : AppCompatActivity() {
             //두번 눌러지는 방법임. onTabSelected/onTabReselected
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 //여기에만 써주면 된다.
-                if(tab?.text=="LIST"){
+                if(tab?.text=="리스트로 보기"){
                     supportFragmentManager.beginTransaction().replace(R.id.container_fragment,PlaceListFragment()).commit()
 
-                }else if(tab?.text=="MAP"){
+                }else if(tab?.text=="지도로 보기"){
                     supportFragmentManager.beginTransaction().replace(R.id.container_fragment,PlaceMapFragment()).commit()
 
                 }
@@ -275,16 +275,16 @@ class MainActivity : AppCompatActivity() {
 
         //choice한 것에 따라 검색 장소명을 변경하여 다시 검색..
         when(choiceID){
-            R.id.choice_wc -> searchQuery= "화장실"
-            R.id.choice_movie -> searchQuery= "영화관"
-            R.id.choice_fastfood -> searchQuery= "패스트푸드"
-            R.id.choice_gas -> searchQuery= "주유소"
-            R.id.choice_pharm -> searchQuery= "약국"
-            R.id.choice_pharm1 -> searchQuery= "약국"
-            R.id.choice_pharm2 -> searchQuery= "약국"
-            R.id.choice_coffee -> searchQuery= "커피"
-            R.id.choice_coffee1-> searchQuery= "버스정류장"
-            R.id.choice_coffee2 -> searchQuery= "화장품"
+            R.id.choice_wc -> searchQuery= "네일샵"
+            R.id.choice_movie -> searchQuery= "속눈썹"
+            R.id.choice_fastfood -> searchQuery= "미용실"
+            R.id.choice_gas -> searchQuery= "화장품"
+            R.id.choice_pharm -> searchQuery= "피부관리"
+            R.id.choice_pharm1 -> searchQuery= "요가"
+            R.id.choice_pharm2 -> searchQuery= "필라테스"
+            R.id.choice_coffee -> searchQuery= "의류판매"
+            R.id.choice_coffee1-> searchQuery= "체형관리"
+            R.id.choice_coffee2 -> searchQuery= "메이크업"
         }
 
         //새로운 검색 시작

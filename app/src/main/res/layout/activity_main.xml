@@ -37,7 +37,8 @@
     <HorizontalScrollView
         android:id="@+id/scrollView"
         android:layout_below="@id/toolbar"
-        android:layout_width="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scrollbars="none">
 
@@ -56,12 +57,12 @@
 <!--        메인아서는 카멜로 바뀐다. -->
 
         <com.google.android.material.tabs.TabItem
-            android:text="LIST"
+            android:text="리스트로 보기"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <com.google.android.material.tabs.TabItem
-            android:text="MAP"
+            android:text="지도로 보기"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
