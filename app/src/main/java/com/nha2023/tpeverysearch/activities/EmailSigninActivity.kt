@@ -57,6 +57,7 @@ class EmailSigninActivity : AppCompatActivity() {
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
 
+
                     //청소하고 메인을 시작한다.
                     startActivity(intent)
 

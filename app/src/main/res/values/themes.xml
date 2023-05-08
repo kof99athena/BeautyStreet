@@ -29,7 +29,7 @@
     <!-- SplashActivity에 적용할 테마 스타일 -->
 
     -
-    <style name="SplashTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
 
         <!-- 배경 색상 -->
 
@@ -40,13 +40,6 @@
         <!-- 배경 이미지 -->
 
 
-        <item name="android:windowBackground">@drawable/splash</item>
 
-        <!-- 상태표시줄 안보이게 -->
-
-
-        <item name="android:windowFullscreen">true</item>
-
-    </style>
 
 </resources>
