@@ -12,9 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="200dp"
         android:padding="16dp"
-        android:text="WELCOME!"
         android:textColor="@color/pink"
         android:textSize="40sp"
         android:textStyle="bold" />
@@ -26,9 +25,8 @@
         android:layout_below="@id/tv_title"
         android:layout_centerHorizontal="true"
         android:paddingLeft="16dp"
-        android:paddingTop="8dp"
         android:paddingRight="16dp"
-        android:paddingBottom="8dp"
+        android:paddingBottom="16dp"
         android:text="로그인 안하고 둘러보기"
         android:textColor="@color/gray" />
 

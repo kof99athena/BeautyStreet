@@ -4,33 +4,85 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/choice_wc"
         android:background="@drawable/bg_choice_select"
         android:padding="8dp"
         android:layout_margin="8dp"
-        android:src="@drawable/wc"
+        android:src="@drawable/list_nailart"
         android:layout_width="40dp"
         android:layout_height="40dp"/>
+
+    <TextView
+        android:text="네일샵"
+        android:textSize="10dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/choice_wc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/choice_movie"
         android:background="@drawable/bg_choice"
         android:padding="8dp"
         android:layout_margin="8dp"
-        android:src="@drawable/baseline_local_movies_24"
+        android:src="@drawable/list_eyelash"
         android:layout_width="40dp"
         android:layout_height="40dp"/>
 
+        <TextView
+            android:text="속눈썹"
+            android:textSize="10dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/choice_movie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
     <ImageView
         android:id="@+id/choice_fastfood"
         android:background="@drawable/bg_choice"
         android:padding="8dp"
         android:layout_margin="8dp"
-        android:src="@drawable/fastfood"
+        android:src="@drawable/list_hair"
         android:layout_width="40dp"
         android:layout_height="40dp"/>
+
+        <TextView
+            android:text="미용실"
+            android:textSize="10dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/choice_fastfood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/choice_gas"
@@ -41,6 +93,23 @@
         android:layout_width="40dp"
         android:layout_height="40dp"/>
 
+
+        <TextView
+            android:text="화장품"
+            android:textSize="10dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/choice_gas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
     <ImageView
         android:id="@+id/choice_pharm"
         android:background="@drawable/bg_choice"
@@ -50,9 +119,23 @@
         android:layout_width="40dp"
         android:layout_height="40dp"/>
 
+        <TextView
+            android:text="피부관리"
+            android:textSize="10dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/choice_pharm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
 
 
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/choice_pharm1"
@@ -63,6 +146,23 @@
         android:layout_width="40dp"
         android:layout_height="40dp"/>
 
+        <TextView
+            android:text="요가"
+            android:textSize="10dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/choice_pharm1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
     <ImageView
         android:id="@+id/choice_pharm2"
         android:background="@drawable/bg_choice"
@@ -71,6 +171,23 @@
         android:src="@drawable/pharmacy"
         android:layout_width="40dp"
         android:layout_height="40dp"/>
+
+        <TextView
+            android:text="필라테스"
+            android:textSize="10dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/choice_pharm2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
 
     <ImageView
         android:id="@+id/choice_coffee"
@@ -81,6 +198,24 @@
         android:layout_width="40dp"
         android:layout_height="40dp"/>
 
+        <TextView
+            android:text="의류판매"
+            android:textSize="10dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/choice_coffee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
     <ImageView
         android:id="@+id/choice_coffee1"
         android:background="@drawable/bg_choice"
@@ -90,6 +225,22 @@
         android:layout_width="40dp"
         android:layout_height="40dp"/>
 
+        <TextView
+            android:text="체형관리"
+            android:textSize="10dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/choice_coffee1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/choice_coffee2"
@@ -99,6 +250,19 @@
         android:src="@drawable/baseline_coffee_24"
         android:layout_width="40dp"
         android:layout_height="40dp"/>
+
+        <TextView
+            android:text="메이크업"
+            android:textSize="10dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/choice_coffee2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
 
 
 
