@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bg_list"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".activities.MainActivity">
@@ -17,7 +18,7 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginRight="8dp"
-            android:src="@drawable/baseline_my_location_24" />
+            android:src="@drawable/location" />
 
         <EditText
             android:id="@+id/et_search"
@@ -25,9 +26,9 @@
             android:layout_height="match_parent"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/bg_login_btn"
+            android:background="@color/white"
             android:gravity="center"
-            android:hint="검색어 입력"
+            android:hint="다른 장소를 검색해보세요! "
             android:imeOptions="actionSearch"
             android:inputType="text"
             android:textSize="12sp" />

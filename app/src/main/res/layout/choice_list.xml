@@ -89,7 +89,7 @@
         android:background="@drawable/bg_choice"
         android:padding="8dp"
         android:layout_margin="8dp"
-        android:src="@drawable/gas"
+        android:src="@drawable/list_cosme"
         android:layout_width="40dp"
         android:layout_height="40dp"/>
 
@@ -115,7 +115,7 @@
         android:background="@drawable/bg_choice"
         android:padding="8dp"
         android:layout_margin="8dp"
-        android:src="@drawable/pharmacy"
+        android:src="@drawable/list_asthetik"
         android:layout_width="40dp"
         android:layout_height="40dp"/>
 
@@ -142,7 +142,7 @@
         android:background="@drawable/bg_choice"
         android:padding="8dp"
         android:layout_margin="8dp"
-        android:src="@drawable/pharmacy"
+        android:src="@drawable/list_yoga"
         android:layout_width="40dp"
         android:layout_height="40dp"/>
 
@@ -168,7 +168,7 @@
         android:background="@drawable/bg_choice"
         android:padding="8dp"
         android:layout_margin="8dp"
-        android:src="@drawable/pharmacy"
+        android:src="@drawable/list_pilates"
         android:layout_width="40dp"
         android:layout_height="40dp"/>
 
@@ -194,7 +194,7 @@
         android:background="@drawable/bg_choice"
         android:padding="8dp"
         android:layout_margin="8dp"
-        android:src="@drawable/baseline_coffee_24"
+        android:src="@drawable/list_fassion"
         android:layout_width="40dp"
         android:layout_height="40dp"/>
 
@@ -221,7 +221,7 @@
         android:background="@drawable/bg_choice"
         android:padding="8dp"
         android:layout_margin="8dp"
-        android:src="@drawable/baseline_coffee_24"
+        android:src="@drawable/list_manage"
         android:layout_width="40dp"
         android:layout_height="40dp"/>
 
@@ -247,7 +247,7 @@
         android:background="@drawable/bg_choice"
         android:padding="8dp"
         android:layout_margin="8dp"
-        android:src="@drawable/baseline_coffee_24"
+        android:src="@drawable/list_makeup"
         android:layout_width="40dp"
         android:layout_height="40dp"/>
 
