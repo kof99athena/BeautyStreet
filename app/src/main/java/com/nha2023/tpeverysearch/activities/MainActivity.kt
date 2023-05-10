@@ -1,6 +1,7 @@
 package com.nha2023.tpeverysearch.activities
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationRequest
@@ -199,9 +200,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         when(item.itemId){
-            R.id.aaa -> Toast.makeText(this, "aa", Toast.LENGTH_SHORT).show()
-            R.id.bbb -> Toast.makeText(this, "bb", Toast.LENGTH_SHORT).show()
-
+            R.id.account -> startActivity(Intent(this,AccountActivity::class.java))
         }
 
         return super.onOptionsItemSelected(item)

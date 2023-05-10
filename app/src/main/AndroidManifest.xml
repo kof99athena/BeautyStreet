@@ -19,6 +19,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activities.AccountActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.PlaceUrlActivity"
             android:exported="false" />
         <activity
@@ -56,10 +59,10 @@
                     android:host="oauth"
                     android:scheme="kakao653d9a6efe0239444d7fa8d29752ff6a" />
             </intent-filter>
-        </activity>
-<!-- kakaoMap의 앱 키를 등록하자 (네이티브 앱키) -->
-        <meta-data android:name="com.kakao.sdk.AppKey" android:value="653d9a6efe0239444d7fa8d29752ff6a"/>
-
+        </activity> <!-- kakaoMap의 앱 키를 등록하자 (네이티브 앱키) -->
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="653d9a6efe0239444d7fa8d29752ff6a" />
     </application>
 
 </manifest>
