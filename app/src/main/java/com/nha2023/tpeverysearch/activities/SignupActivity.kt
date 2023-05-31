@@ -26,7 +26,7 @@ class SignupActivity : AppCompatActivity() {
 //        if(supportActionBar==null) return
 //        supportActionBar.setDisplayHomeAsUpEnabled(true)
 
-        supportActionBar?.setHomeAsUpIndicator(R.drawable.app_logo)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.twotone_navigate_before_24)
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
         binding.btnSignup.setOnClickListener { clickSignUp() }

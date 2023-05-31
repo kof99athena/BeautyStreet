@@ -23,7 +23,7 @@ class EmailSigninActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setHomeAsUpIndicator(R.drawable.icon_kakako) // 맘에 안들면 뒤버튼을 바꾸자
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.twotone_navigate_before_24) // 맘에 안들면 뒤버튼을 바꾸자
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
         binding.btnSignIn.setOnClickListener { clickSignIn() }
