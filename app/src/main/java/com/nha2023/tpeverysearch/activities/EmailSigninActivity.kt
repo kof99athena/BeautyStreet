@@ -23,7 +23,7 @@ class EmailSigninActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setHomeAsUpIndicator(R.drawable.baseline_diversity_3_24) // 맘에 안들면 뒤버튼을 바꾸자
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.twotone_navigate_before_24) // 맘에 안들면 뒤버튼을 바꾸자
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
         binding.btnSignIn.setOnClickListener { clickSignIn() }
@@ -56,6 +56,7 @@ class EmailSigninActivity : AppCompatActivity() {
                     //백스택을 깔끔하게 없애고 intent를 start해야한다.
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+
 
                     //청소하고 메인을 시작한다.
                     startActivity(intent)

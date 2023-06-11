@@ -3,12 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="4dp"
-    app:cardCornerRadius="4dp"
+    app:cardCornerRadius="16dp"
     app:contentPadding="16dp"
     android:layout_margin="8dp"
-    app:strokeColor="#2196F3"
-    app:strokeWidth="2dp">
+    app:strokeColor="@color/pink"
+    app:strokeWidth="1dp">
+
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -43,8 +44,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-
     </RelativeLayout>
+
 
 
 </com.google.android.material.card.MaterialCardView>

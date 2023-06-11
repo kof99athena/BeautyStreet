@@ -5,11 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import com.nha2023.tpeverysearch.R
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_splash) //테마를 이용하여 화면을 구현할 것임
+        setContentView(R.layout.activity_splash) //테마를 이용하여 화면을 구현할 것임
 
         // 단순하게 1.5초 후에 로그인 화면(LoginActivity)로 전환
 //        Handler(Looper.getMainLooper()).postDelayed( object:Runnable{

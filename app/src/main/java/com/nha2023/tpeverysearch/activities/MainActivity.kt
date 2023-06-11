@@ -1,19 +1,17 @@
 package com.nha2023.tpeverysearch.activities
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
-import android.location.LocationRequest
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Looper
-import android.view.KeyEvent
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
-import android.widget.TextView
-import android.widget.TextView.OnEditorActionListener
 import android.widget.Toast
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.ActivityResultLauncher
@@ -26,6 +24,7 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
+import com.kakao.util.maps.helper.Utility
 import com.nha2023.tpeverysearch.R
 import com.nha2023.tpeverysearch.databinding.ActivityMainBinding
 import com.nha2023.tpeverysearch.fragment.PlaceListFragment
@@ -44,7 +43,7 @@ class MainActivity : AppCompatActivity() {
 
     //검색에 필요한 요청데이터 : query(검색장소명) , 내주변 좌표 x(경도 longitude),y(위도 latitude) ->카카오에서 요청하는 데이터는 3개이다.
     //1. 검색 장소명
-    var searchQuery : String = "화장실" //앱 초기 검색어 - 내 주변 개방 화장실
+    var searchQuery : String = "네일샵" //앱 초기 검색어 - 내 주변 개방 화장실
 
     //2. 현재 내 위치 정보 객체 (위도, 경도를 멤버로 보유한 객체)
     var myLocation : Location?= null //내 위치를 못 찾아 올수도 있으니까 null로 해준다
@@ -67,6 +66,10 @@ class MainActivity : AppCompatActivity() {
         //툴바를 제목줄로 대체 - 옵션메뉴랑 연결되도록
         setSupportActionBar(binding.toolbar)
 
+        //키 해쉬값을 얻어오자
+        var keyHash : String = Utility.getKeyHash(this)
+        Log.i("keyhash",keyHash)
+
         //앱이 시작하자마자 처음 보여질 프래그먼트를 동적으로 추가하자.
         supportFragmentManager.beginTransaction().add(R.id.container_fragment,PlaceListFragment()).commit() //PlaceListFragment() 객체를 만들어준다.
 
@@ -75,10 +78,10 @@ class MainActivity : AppCompatActivity() {
             //두번 눌러지는 방법임. onTabSelected/onTabReselected
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 //여기에만 써주면 된다.
-                if(tab?.text=="LIST"){
+                if(tab?.text=="리스트로 보기"){
                     supportFragmentManager.beginTransaction().replace(R.id.container_fragment,PlaceListFragment()).commit()
 
-                }else if(tab?.text=="MAP"){
+                }else if(tab?.text=="지도로 보기"){
                     supportFragmentManager.beginTransaction().replace(R.id.container_fragment,PlaceMapFragment()).commit()
 
                 }
@@ -193,9 +196,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         when(item.itemId){
-            R.id.aaa -> Toast.makeText(this, "aa", Toast.LENGTH_SHORT).show()
-            R.id.bbb -> Toast.makeText(this, "bb", Toast.LENGTH_SHORT).show()
-
+            R.id.account -> startActivity(Intent(this,AccountActivity::class.java))
         }
 
         return super.onOptionsItemSelected(item)
@@ -240,21 +241,21 @@ class MainActivity : AppCompatActivity() {
 
     //잘쓰는 특정 키워드만 버튼만들어서 리스너 달기
     private fun setChoiceButtonListener(){
-        binding.layoutChoice.choiceWc.setOnClickListener {clickChoice(it)  }
-        binding.layoutChoice.choiceMovie.setOnClickListener {clickChoice(it)  }
-        binding.layoutChoice.choiceFastfood.setOnClickListener {clickChoice(it) }
-        binding.layoutChoice.choiceGas.setOnClickListener {clickChoice(it)  }
-        binding.layoutChoice.choicePharm.setOnClickListener {clickChoice(it)  }
-        binding.layoutChoice.choicePharm1.setOnClickListener {clickChoice(it)  }
-        binding.layoutChoice.choicePharm2.setOnClickListener {clickChoice(it) }
-        binding.layoutChoice.choiceCoffee.setOnClickListener {clickChoice(it)  }
-        binding.layoutChoice.choiceCoffee1.setOnClickListener {clickChoice(it)  }
-        binding.layoutChoice.choiceCoffee2.setOnClickListener {clickChoice(it)  }
+        binding.layoutChoice.choiceNailart.setOnClickListener {clickChoice(it)  }
+        binding.layoutChoice.choiceEyelash.setOnClickListener {clickChoice(it)  }
+        binding.layoutChoice.choiceHair.setOnClickListener {clickChoice(it) }
+        binding.layoutChoice.choiceCosme.setOnClickListener {clickChoice(it)  }
+        binding.layoutChoice.choiceAsthetik.setOnClickListener {clickChoice(it)  }
+        binding.layoutChoice.choiceYoga.setOnClickListener {clickChoice(it)  }
+        binding.layoutChoice.choicePilates.setOnClickListener {clickChoice(it) }
+        binding.layoutChoice.choiceFassion.setOnClickListener {clickChoice(it)  }
+        binding.layoutChoice.choiceManage.setOnClickListener {clickChoice(it)  }
+        binding.layoutChoice.choiceMakeup.setOnClickListener {clickChoice(it)  }
         //어떤 버튼을 눌러도 it이 반응한다.
     }
 
     //프로퍼티 영역, 초이스된 아이디 저장
-    var choiceID = R.id.choice_wc
+    var choiceID = R.id.choice_nailart
 
 
     private fun  clickChoice(view : View){
@@ -262,23 +263,23 @@ class MainActivity : AppCompatActivity() {
         findViewById<ImageView>(choiceID).setBackgroundResource(R.drawable.bg_choice) //흰색배경
 
         //현재 클릭된 버튼의 배경을 회색 원 그림으로 변경
-        view.setBackgroundResource(R.drawable.bg_choice_select)
+        view.setBackgroundResource(R.drawable.bg_select)
 
         //다음클릭시에 이전 클릭된 뷰의 ID를 기억하더록 ..
         choiceID = view.id //view는 현재 클릭된 아이
 
         //choice한 것에 따라 검색 장소명을 변경하여 다시 검색..
         when(choiceID){
-            R.id.choice_wc -> searchQuery= "화장실"
-            R.id.choice_movie -> searchQuery= "영화관"
-            R.id.choice_fastfood -> searchQuery= "패스트푸드"
-            R.id.choice_gas -> searchQuery= "주유소"
-            R.id.choice_pharm -> searchQuery= "약국"
-            R.id.choice_pharm1 -> searchQuery= "약국"
-            R.id.choice_pharm2 -> searchQuery= "약국"
-            R.id.choice_coffee -> searchQuery= "커피"
-            R.id.choice_coffee1-> searchQuery= "버스정류장"
-            R.id.choice_coffee2 -> searchQuery= "화장품"
+            R.id.choice_nailart -> searchQuery= "네일샵"
+            R.id.choice_eyelash -> searchQuery= "속눈썹"
+            R.id.choice_hair -> searchQuery= "미용실"
+            R.id.choice_cosme -> searchQuery= "화장품"
+            R.id.choice_asthetik -> searchQuery= "피부관리"
+            R.id.choice_yoga -> searchQuery= "요가"
+            R.id.choice_pilates -> searchQuery= "필라테스"
+            R.id.choice_fassion -> searchQuery= "의류판매"
+            R.id.choice_manage-> searchQuery= "체형관리"
+            R.id.choice_makeup -> searchQuery= "메이크업"
         }
 
         //새로운 검색 시작

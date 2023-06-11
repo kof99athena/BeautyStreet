@@ -2,8 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bg_list"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".activities.MainActivity">
 
 
@@ -17,7 +18,7 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginRight="8dp"
-            android:src="@drawable/baseline_my_location_24" />
+            android:src="@drawable/location" />
 
         <EditText
             android:id="@+id/et_search"
@@ -25,21 +26,25 @@
             android:layout_height="match_parent"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/bg_login_btn"
+            android:background="@color/white"
             android:gravity="center"
-            android:hint="검색어 입력"
+            android:hint="다른 장소를 검색해보세요! "
             android:imeOptions="actionSearch"
             android:inputType="text"
             android:textSize="12sp" />
 
     </androidx.appcompat.widget.Toolbar>
 
+
     <HorizontalScrollView
         android:id="@+id/scrollView"
         android:layout_below="@id/toolbar"
-        android:layout_width="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:scrollbars="none">
+        android:fadeScrollbars="false"
+        android:scrollbarSize="2dp"
+        android:scrollbarThumbHorizontal="@color/pink">
 
         <include layout="@layout/choice_list" android:id="@+id/layout_choice"/>
 
@@ -47,21 +52,23 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
-        app:tabIndicatorColor="#8BC34A"
-        app:tabSelectedTextColor="#009688"
+        app:tabIndicatorColor="@color/white"
+        app:tabSelectedTextAppearance="@color/pink"
+        app:tabSelectedTextColor="@color/violet"
         app:tabTextColor="@android:color/darker_gray"
         android:layout_below="@id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
 <!--        메인아서는 카멜로 바뀐다. -->
 
         <com.google.android.material.tabs.TabItem
-            android:text="LIST"
+            android:text="리스트로 보기"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <com.google.android.material.tabs.TabItem
-            android:text="MAP"
+            android:text="지도로 보기"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -70,10 +77,9 @@
 
     <FrameLayout
         android:id="@+id/container_fragment"
-        android:layout_marginTop="8dp"
-        android:layout_below="@id/tab_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_below="@id/tab_layout" />
 
 
 </RelativeLayout>
