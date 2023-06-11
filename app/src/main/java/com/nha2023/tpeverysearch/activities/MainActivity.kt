@@ -4,18 +4,14 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
-import android.location.LocationRequest
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Looper
 import android.util.Log
-import android.view.KeyEvent
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
-import android.widget.TextView
-import android.widget.TextView.OnEditorActionListener
 import android.widget.Toast
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.ActivityResultLauncher
@@ -245,21 +241,21 @@ class MainActivity : AppCompatActivity() {
 
     //잘쓰는 특정 키워드만 버튼만들어서 리스너 달기
     private fun setChoiceButtonListener(){
-        binding.layoutChoice.choiceWc.setOnClickListener {clickChoice(it)  }
-        binding.layoutChoice.choiceMovie.setOnClickListener {clickChoice(it)  }
-        binding.layoutChoice.choiceFastfood.setOnClickListener {clickChoice(it) }
-        binding.layoutChoice.choiceGas.setOnClickListener {clickChoice(it)  }
-        binding.layoutChoice.choicePharm.setOnClickListener {clickChoice(it)  }
-        binding.layoutChoice.choicePharm1.setOnClickListener {clickChoice(it)  }
-        binding.layoutChoice.choicePharm2.setOnClickListener {clickChoice(it) }
-        binding.layoutChoice.choiceCoffee.setOnClickListener {clickChoice(it)  }
-        binding.layoutChoice.choiceCoffee1.setOnClickListener {clickChoice(it)  }
-        binding.layoutChoice.choiceCoffee2.setOnClickListener {clickChoice(it)  }
+        binding.layoutChoice.choiceNailart.setOnClickListener {clickChoice(it)  }
+        binding.layoutChoice.choiceEyelash.setOnClickListener {clickChoice(it)  }
+        binding.layoutChoice.choiceHair.setOnClickListener {clickChoice(it) }
+        binding.layoutChoice.choiceCosme.setOnClickListener {clickChoice(it)  }
+        binding.layoutChoice.choiceAsthetik.setOnClickListener {clickChoice(it)  }
+        binding.layoutChoice.choiceYoga.setOnClickListener {clickChoice(it)  }
+        binding.layoutChoice.choicePilates.setOnClickListener {clickChoice(it) }
+        binding.layoutChoice.choiceFassion.setOnClickListener {clickChoice(it)  }
+        binding.layoutChoice.choiceManage.setOnClickListener {clickChoice(it)  }
+        binding.layoutChoice.choiceMakeup.setOnClickListener {clickChoice(it)  }
         //어떤 버튼을 눌러도 it이 반응한다.
     }
 
     //프로퍼티 영역, 초이스된 아이디 저장
-    var choiceID = R.id.choice_wc
+    var choiceID = R.id.choice_nailart
 
 
     private fun  clickChoice(view : View){
@@ -267,23 +263,23 @@ class MainActivity : AppCompatActivity() {
         findViewById<ImageView>(choiceID).setBackgroundResource(R.drawable.bg_choice) //흰색배경
 
         //현재 클릭된 버튼의 배경을 회색 원 그림으로 변경
-        view.setBackgroundResource(R.drawable.bg_choice_select)
+        view.setBackgroundResource(R.drawable.bg_select)
 
         //다음클릭시에 이전 클릭된 뷰의 ID를 기억하더록 ..
         choiceID = view.id //view는 현재 클릭된 아이
 
         //choice한 것에 따라 검색 장소명을 변경하여 다시 검색..
         when(choiceID){
-            R.id.choice_wc -> searchQuery= "네일샵"
-            R.id.choice_movie -> searchQuery= "속눈썹"
-            R.id.choice_fastfood -> searchQuery= "미용실"
-            R.id.choice_gas -> searchQuery= "화장품"
-            R.id.choice_pharm -> searchQuery= "피부관리"
-            R.id.choice_pharm1 -> searchQuery= "요가"
-            R.id.choice_pharm2 -> searchQuery= "필라테스"
-            R.id.choice_coffee -> searchQuery= "의류판매"
-            R.id.choice_coffee1-> searchQuery= "체형관리"
-            R.id.choice_coffee2 -> searchQuery= "메이크업"
+            R.id.choice_nailart -> searchQuery= "네일샵"
+            R.id.choice_eyelash -> searchQuery= "속눈썹"
+            R.id.choice_hair -> searchQuery= "미용실"
+            R.id.choice_cosme -> searchQuery= "화장품"
+            R.id.choice_asthetik -> searchQuery= "피부관리"
+            R.id.choice_yoga -> searchQuery= "요가"
+            R.id.choice_pilates -> searchQuery= "필라테스"
+            R.id.choice_fassion -> searchQuery= "의류판매"
+            R.id.choice_manage-> searchQuery= "체형관리"
+            R.id.choice_makeup -> searchQuery= "메이크업"
         }
 
         //새로운 검색 시작

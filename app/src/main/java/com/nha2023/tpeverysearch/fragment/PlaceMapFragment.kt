@@ -54,25 +54,21 @@ class PlaceMapFragment : Fragment() {
     }
 
     private fun setMapAndMarkers(){
-        // 맵 중심점 변경
-        // 현재 내 위치 위도(래티튜드), 경도(롱기튜드) 좌표
-        // 액티비티안에 프래그먼트가 존재한다. 그래서  var searchPlaceResponse, var myLocation 를 갖고있다.
+
         var lat : Double = (activity as MainActivity).myLocation?.latitude ?: 37.5663 //액티비티가 아직 내 위치를 못가져온다면? 서울시청으로 설정한다.
         var longi : Double = (activity as MainActivity).myLocation?.longitude ?: 126.9779 //액티비티가 아직 내 위치를 못가져온다면? 서울시청으로 설정한다.
 
         var mvMapPoint : MapPoint = MapPoint.mapPointWithGeoCoord(lat,longi)
         mapView.setMapCenterPointAndZoomLevel(mvMapPoint,5,true)
-        //mapPoint : 위도 경도
-        //zoomlevel : 확대하는거, 1이 제일 크다
-        //animated : 줌 애니메이션쓸거임?
+
 
         mapView.zoomIn(true)
         mapView.zoomOut(true)
 
-        //내 위치를 표시하는 마커가 필요하다.
-        var marker = MapPOIItem() //객체 만들기
-        marker.apply {  // apply를 써서 marker에게 요청할것들을 {  } 안에 써준다.
-            itemName = "여기"
+
+        var marker = MapPOIItem()
+        marker.apply {
+            itemName = ""
             mapPoint = mvMapPoint
             markerType = MapPOIItem.MarkerType.BluePin
             selectedMarkerType= MapPOIItem.MarkerType.YellowPin
@@ -80,7 +76,7 @@ class PlaceMapFragment : Fragment() {
 
         mapView.addPOIItem(marker)
 
-        //검색장소들의 마커 추가
+
         val documents : MutableList<Place>? = (activity as MainActivity).searchPlaceResponse?.documents//이미 MainAct가 갖고있다.
         documents?.forEach {
             val point : MapPoint = MapPoint.mapPointWithGeoCoord(it.y.toDouble(),it.x.toDouble())
@@ -90,10 +86,9 @@ class PlaceMapFragment : Fragment() {
                 markerType = MapPOIItem.MarkerType.RedPin
                 selectedMarkerType = MapPOIItem.MarkerType.YellowPin
 
-                //마커 객체에 보관하고 싶은 데이터가 있다면...
-                //즉, 해당 마커에 관련된 정보를 가지고 있는 객체를 마커에 저장해두기.
+
                 userObject = it.place_url
-                //it은 Place이다
+             
             }
 
             mapView.addPOIItem(marker)

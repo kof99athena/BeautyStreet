@@ -9,8 +9,8 @@
         android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/choice_wc"
-        android:background="@drawable/bg_choice_select"
+        android:id="@+id/choice_nailart"
+        android:background="@drawable/bg_select"
         android:padding="8dp"
         android:layout_margin="8dp"
         android:src="@drawable/list_nailart"
@@ -23,7 +23,7 @@
         android:textStyle="bold"
         android:layout_marginBottom="10dp"
         android:layout_centerInParent="true"
-        android:layout_below="@id/choice_wc"
+        android:layout_below="@id/choice_nailart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/choice_movie"
+        android:id="@+id/choice_eyelash"
         android:background="@drawable/bg_choice"
         android:padding="8dp"
         android:layout_margin="8dp"
@@ -49,7 +49,7 @@
             android:textStyle="bold"
             android:layout_marginBottom="10dp"
             android:layout_centerInParent="true"
-            android:layout_below="@id/choice_movie"
+            android:layout_below="@id/choice_eyelash"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -60,7 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
     <ImageView
-        android:id="@+id/choice_fastfood"
+        android:id="@+id/choice_hair"
         android:background="@drawable/bg_choice"
         android:padding="8dp"
         android:layout_margin="8dp"
@@ -74,7 +74,7 @@
             android:textStyle="bold"
             android:layout_marginBottom="10dp"
             android:layout_centerInParent="true"
-            android:layout_below="@id/choice_fastfood"
+            android:layout_below="@id/choice_hair"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -85,7 +85,7 @@
         android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/choice_gas"
+        android:id="@+id/choice_cosme"
         android:background="@drawable/bg_choice"
         android:padding="8dp"
         android:layout_margin="8dp"
@@ -100,7 +100,7 @@
             android:textStyle="bold"
             android:layout_marginBottom="10dp"
             android:layout_centerInParent="true"
-            android:layout_below="@id/choice_gas"
+            android:layout_below="@id/choice_cosme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -111,7 +111,7 @@
         android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/choice_pharm"
+        android:id="@+id/choice_asthetik"
         android:background="@drawable/bg_choice"
         android:padding="8dp"
         android:layout_margin="8dp"
@@ -125,7 +125,7 @@
             android:textStyle="bold"
             android:layout_marginBottom="10dp"
             android:layout_centerInParent="true"
-            android:layout_below="@id/choice_pharm"
+            android:layout_below="@id/choice_asthetik"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -138,7 +138,7 @@
         android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/choice_pharm1"
+        android:id="@+id/choice_yoga"
         android:background="@drawable/bg_choice"
         android:padding="8dp"
         android:layout_margin="8dp"
@@ -152,7 +152,7 @@
             android:textStyle="bold"
             android:layout_marginBottom="10dp"
             android:layout_centerInParent="true"
-            android:layout_below="@id/choice_pharm1"
+            android:layout_below="@id/choice_yoga"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -164,7 +164,7 @@
 
 
     <ImageView
-        android:id="@+id/choice_pharm2"
+        android:id="@+id/choice_pilates"
         android:background="@drawable/bg_choice"
         android:padding="8dp"
         android:layout_margin="8dp"
@@ -178,7 +178,7 @@
             android:textStyle="bold"
             android:layout_marginBottom="10dp"
             android:layout_centerInParent="true"
-            android:layout_below="@id/choice_pharm2"
+            android:layout_below="@id/choice_pilates"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -190,7 +190,7 @@
 
 
     <ImageView
-        android:id="@+id/choice_coffee"
+        android:id="@+id/choice_fassion"
         android:background="@drawable/bg_choice"
         android:padding="8dp"
         android:layout_margin="8dp"
@@ -204,7 +204,7 @@
             android:textStyle="bold"
             android:layout_marginBottom="10dp"
             android:layout_centerInParent="true"
-            android:layout_below="@id/choice_coffee"
+            android:layout_below="@id/choice_fassion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -217,7 +217,7 @@
         android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/choice_coffee1"
+        android:id="@+id/choice_manage"
         android:background="@drawable/bg_choice"
         android:padding="8dp"
         android:layout_margin="8dp"
@@ -231,7 +231,7 @@
             android:textStyle="bold"
             android:layout_marginBottom="10dp"
             android:layout_centerInParent="true"
-            android:layout_below="@id/choice_coffee1"
+            android:layout_below="@id/choice_manage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -243,7 +243,7 @@
         android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/choice_coffee2"
+        android:id="@+id/choice_makeup"
         android:background="@drawable/bg_choice"
         android:padding="8dp"
         android:layout_margin="8dp"
@@ -257,7 +257,7 @@
             android:textStyle="bold"
             android:layout_marginBottom="10dp"
             android:layout_centerInParent="true"
-            android:layout_below="@id/choice_coffee2"
+            android:layout_below="@id/choice_makeup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 

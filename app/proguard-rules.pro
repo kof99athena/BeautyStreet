@@ -20,6 +20,23 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
--dontwarn org.conscrypt.**
--dontwarn org.bouncycastle.**
+-keep class com.kakao.sdk.**.model.* { <fields>; }
+
+
+# https://github.com/square/okhttp/pull/6792
+-dontwarn org.bouncycastle.jsse.**
+-dontwarn org.conscrypt.*
 -dontwarn org.openjsse.**
+
+#카카오맵 지도 난독화 풀기
+-keep class net.daum.**
+-keep class net.daum.** { *; }
+
+
+-keep class com.nha2023.tpeverysearch.model**
+-keep class com.nha2023.tpeverysearch.model** {*;}
+
+-keep class com.nha2023.tpeverysearch.G**
+-keep class com.nha2023.tpeverysearch.G** {*;}
+
+
